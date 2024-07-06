@@ -1,0 +1,452 @@
+/*
+Colors that I'm working with:
+  #0E21A0
+  #4D2DB7
+  #9D44C0
+  #EC53B0
+*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  color: #f3f3f3;
+  background-color: #331e7ae7;
+  height: 100vh;
+  padding: 2rem;
+}
+/*/////////////////////////////////////////////////////////////////////////////////*/
+.login--card .login--error {
+  color: rgba(210, 52, 52, 0.903);
+  font-size: 1rem;
+  opacity: 0;
+}
+.login--card .login > p {
+  font-size: 1.9rem;
+  font-weight: 500;
+  opacity: 0.8;
+}
+.login {
+  overflow: hidden;
+  background-color: white;
+  padding: 40px 30px 30px 30px;
+  border-radius: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 450px;
+  box-shadow: 5px 10px 10px #4d2db741;
+  z-index: 100;
+}
+.login::before,
+.login::after {
+  content: '';
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border-top-left-radius: 40%;
+  border-top-right-radius: 45%;
+  border-bottom-left-radius: 35%;
+  border-bottom-right-radius: 40%;
+  z-index: -1;
+}
+.login::before {
+  left: 40%;
+  bottom: -130%;
+  background-color: #4d2db7d2;
+  animation: wawes 6s infinite linear;
+}
+
+.login::after {
+  left: 35%;
+  bottom: -125%;
+  background-color: #4d2db7d2;
+  animation: wawes 7s infinite;
+}
+.login > p {
+  color: #333;
+}
+.login > input {
+  display: block;
+  border-radius: 5px;
+  font-size: 16px;
+  background: white;
+  width: 100%;
+  border: 1px solid #0e21a03e;
+  padding: 10px 10px;
+  margin: 15px -10px;
+  outline: none;
+}
+
+.login > button {
+  cursor: pointer;
+  color: #fff;
+  font-size: 16px;
+  text-transform: uppercase;
+  width: 80px;
+  border: 0;
+  background-color: #0e21a0bf;
+  padding: 10px 0;
+  margin-top: 10px;
+  margin-left: -5px;
+  border-radius: 5px;
+  transition: background-color 300ms;
+}
+@keyframes wawes {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* MAIN */
+.app {
+  position: relative;
+  max-width: 100rem;
+  margin: 2rem auto;
+  opacity: 0;
+  transition: all 1s;
+}
+
+.balance {
+  grid-column: 1 / span 2;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.welcome {
+  font-size: 2.2rem;
+  font-weight: 500;
+  margin-bottom: -0.2rem;
+}
+
+.balance__date {
+  font-size: 1.4rem;
+  color: #f3f3f3;
+}
+
+.balance__value {
+  font-size: 4.5rem;
+  font-weight: 400;
+}
+/* OPERATIONS */
+.operations-all {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.operation {
+  border-radius: 1rem;
+  padding: 3rem 4rem;
+  color: #f3f3f3;
+  margin: 20px 10px;
+}
+
+.operation--transfer {
+  background-image: linear-gradient(to top left, #4d2db7, #7e57fc);
+}
+
+.operation--loan {
+  background-image: linear-gradient(to top left, #9d44c0, #c35cec);
+}
+
+.operation--close {
+  background-image: linear-gradient(to top left, #ec53b0, #ff7ccb);
+}
+
+h2 {
+  margin-bottom: 1.5rem;
+  font-size: 1.7rem;
+  font-weight: 600;
+  color: #f3f3f3;
+}
+
+.form {
+  display: grid;
+  grid-template-columns: 2.5fr 2.5fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 0.4rem 1rem;
+}
+
+/* Exceptions for interst */
+.form.form--loan {
+  grid-template-columns: 2.5fr 1fr 2.5fr;
+}
+.form__label--loan {
+  grid-row: 2;
+}
+/* End exceptions */
+
+.form__input {
+  width: 100%;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.4);
+  font-family: inherit;
+  font-size: 1.5rem;
+  text-align: center;
+  color: #333;
+  padding: 0.3rem 1rem;
+  border-radius: 0.7rem;
+  transition: all 0.3s;
+}
+
+.form__input:focus {
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+.form__label {
+  font-size: 1.3rem;
+  text-align: center;
+}
+
+.form__btn {
+  border: none;
+  border-radius: 0.7rem;
+  font-size: 1.8rem;
+  background-color: #fff;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.form__btn:focus {
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+/* MOVEMENTS */
+.movements {
+  grid-row: 2 / span 3;
+  background-color: #f8f8f8;
+  border-radius: 1rem;
+  overflow: auto;
+  max-height: 350px;
+}
+
+.movements__row {
+  padding: 2.25rem 4rem;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+}
+
+.movements__type {
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: #fff;
+  padding: 0.1rem 1rem;
+  border-radius: 10rem;
+  margin-right: 2rem;
+}
+
+.movements__date {
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.movements__type--deposit {
+  background-image: linear-gradient(to top left, #4d2db7, #7e57fc);
+}
+
+.movements__type--withdrawal {
+  background-image: linear-gradient(to top left, #ec53b0, #ff7ccb);
+}
+
+.movements__value {
+  font-size: 1.7rem;
+  margin-left: auto;
+  color: #2e2e2e;
+}
+/* SUMMARY */
+.summary {
+  grid-row: 5 / 6;
+  display: flex;
+  align-items: baseline;
+  padding: 0 0.3rem;
+  margin-top: 1rem;
+}
+.summary__label {
+  font-size: 1.2rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  margin-right: 0.8rem;
+}
+.summary__value {
+  font-size: 2.2rem;
+  margin-right: 2.5rem;
+}
+.summary__value--in {
+  color: #d772ff;
+}
+.summary__value--out {
+  color: #ff7ccb;
+}
+
+.movements__row:hover {
+  background-color: #f2f2f2d8;
+}
+/* WORMING POPUP*/
+.worming {
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(77, 77, 77, 0.7);
+  z-index: 999;
+}
+
+.worming__content {
+  border-radius: 4px;
+  position: relative;
+  width: 500px;
+  max-width: 90%;
+  color: rgba(210, 52, 52, 0.903);
+  background-color: #f2f2f2;
+  padding: 1em 2em;
+}
+
+.worming__close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: #585858;
+  text-decoration: none;
+  font-size: 2rem;
+}
+
+.woriming__confirmation {
+  align-items: center;
+  background-color: #ffe7e7;
+  background-position: 0 0;
+  border: 1px solid #fee0e0;
+  border-radius: 11px;
+  box-sizing: border-box;
+  color: #d33a2c;
+  cursor: pointer;
+  display: flex;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 33.4929px;
+  list-style: outside url(https://www.smashingmagazine.com/images/bullet.svg)
+    none;
+  padding: 2px 12px;
+  text-align: left;
+  text-decoration: none;
+  text-shadow: none;
+  text-underline-offset: 1px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  word-break: break-word;
+  float: right;
+}
+
+/*LOADING PAGE*/
+.loading {
+  visibility: visible;
+  height: 100vh;
+  width: 100vw;
+  background-color: #28175e;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.loading .one {
+  height: 80px;
+  width: 80px;
+  border: 7px solid white;
+  transform: rotate(45deg);
+  border-radius: 0 50% 50% 50%;
+  position: relative;
+  animation: move 0.5s linear infinite alternate-reverse;
+}
+.loading .one::before {
+  content: '';
+  position: absolute;
+  height: 55%;
+  width: 55%;
+  border-radius: 50%;
+  border: 7px solid transparent;
+  border-top-color: white;
+  border-bottom-color: white;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: rotate 1s linear infinite;
+}
+
+@keyframes rotate {
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+@keyframes move {
+  to {
+    transform: translateY(15px) rotate(45deg);
+  }
+}
+
+@media screen and (max-width: 950px) {
+  html {
+    font-size: 50.5%;
+  }
+  @media screen and (max-width: 750px) {
+    html {
+      font-size: 62.5%;
+    }
+    .login {
+      width: 350px;
+      padding: 30px 20px 20px 20px;
+    }
+    .login::before,
+    .login::after {
+      width: 500px;
+      height: 500px;
+    }
+    .app {
+      padding: 0 40px;
+    }
+    .operations-all {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    @media screen and (max-width: 550px) {
+      .app {
+        margin: 0rem;
+        padding: 0;
+      }
+      .operation {
+        padding: 1rem 2rem;
+        margin: 5px 0;
+      }
+    }
+  }
+}
